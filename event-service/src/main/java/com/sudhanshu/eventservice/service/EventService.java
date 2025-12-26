@@ -17,7 +17,7 @@ public interface EventService {
 	
 	Page<EventResponse> searchEvents(String userId, EventType type, Pageable pageable);
 	
-	EventResponse updateEvnt(UUID id, EventUpdateRequest updateRequest);
+	EventResponse updateEvent(UUID id, EventUpdateRequest updateRequest);
 	
 	void softDelete(UUID id);
 }
