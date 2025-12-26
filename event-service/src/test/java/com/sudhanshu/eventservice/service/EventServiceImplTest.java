@@ -11,11 +11,13 @@ import com.sudhanshu.eventservice.service.impl.EventServiceImpl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.domain.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -76,4 +78,20 @@ public class EventServiceImplTest {
         assertThrows(NotFoundException.class, () -> eventService.getEvent(id));
     }
 
+    @Test
+    void listEvents_shouldApplyBasicFilter() {
+        Event e1 = new Event();
+        e1.setId(UUID.randomUUID());
+        e1.setUserId("user-101");
+        e1.setType(EventType.VIEW_START);
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("timestamp").descending());
+
+        when(eventRepository.findByUserIdAndType("user-101", EventType.VIEW_START, pageable))
+                .thenReturn(new PageImpl<>(List.of(e1)));
+
+        Page<EventResponse> events = eventService
+                .searchEvents("user-101", EventType.VIEW_START, pageable);
+
+        assertThat(events).hasSize(1);
+    }
 }
