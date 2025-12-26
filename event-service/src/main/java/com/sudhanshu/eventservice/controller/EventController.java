@@ -66,7 +66,7 @@ public class EventController {
 			@PathVariable UUID id,
 			@Valid @RequestBody EventUpdateRequest eventUpdateRequest
 			) {
-		return eventService.updateEvnt(id, eventUpdateRequest);
+		return eventService.updateEvent(id, eventUpdateRequest);
 	}
 	
 	@DeleteMapping("/{id}")

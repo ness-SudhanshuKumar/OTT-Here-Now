@@ -65,7 +65,7 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public EventResponse updateEvnt(UUID id, EventUpdateRequest updateRequest) {
+	public EventResponse updateEvent(UUID id, EventUpdateRequest updateRequest) {
 		// TODO Auto-generated method stub
 		
 		Event event = eventRepository.findById(id)
