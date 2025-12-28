@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,7 +85,13 @@ public class EventServiceImpl implements EventService{
 				.orElseThrow(() -> new NotFoundException("Event not Found: "+ id));
 		event.setStatus(EventStatus.DELETED);
 	}
-	
+
+	@Override
+	public Page<EventResponse> searchEvents(Specification<Event> spec, Pageable pageable) {
+		// TODO Auto-generated method stub
+		Page<Event> page = eventRepository.findAll(spec, pageable);
+		return page.map(this::toResponse);
+	}
 	private EventResponse toResponse(Event event) {
 		EventResponse response = new EventResponse();
 		response.setId(event.getId());
@@ -98,5 +105,7 @@ public class EventServiceImpl implements EventService{
 		return response;
 		
 	}
+
+
 
 }

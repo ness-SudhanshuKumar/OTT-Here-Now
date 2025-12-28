@@ -3,16 +3,22 @@ package com.sudhanshu.eventservice.entity;
 import java.time.Instant;
 import java.util.UUID;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "events")
@@ -45,12 +51,20 @@ public class Event {
 	@Column(nullable = false)
 	private Instant updatedAt;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_profile_id")
+	private UserProfile userProfile;
+	
+	@Version
+	private Long version;
 	
 	@PrePersist
 	void onCreate() {
 		Instant now = Instant.now();
 		createdAt = now;
 		updatedAt = now;
+		if(timestamp == null)
+			timestamp = now;
 	}
 	
 	@PreUpdate
@@ -124,6 +138,22 @@ public class Event {
 
 	public Event() {
 		
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 	
 	
