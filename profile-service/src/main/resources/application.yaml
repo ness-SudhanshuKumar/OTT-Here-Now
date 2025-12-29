@@ -31,3 +31,19 @@ eureka:
     non-secure-port: ${server.port}
     metadata-map:
       instanceId: ${spring.application.name}:${random.value}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway,routes
+      base-path: /actuator  # Default
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: false
+info:
+  env:
+    enabled: true
+  git:
+    mode: simple

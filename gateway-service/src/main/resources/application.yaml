@@ -32,6 +32,29 @@ eureka:
     instance:
       appName: gateway-service
       preferIpAddress: true
-      instnace-id: ${spring.application.name}:${random.value}
+      instance-id: ${spring.application.name}:${random.value}
 
-  
+logging:
+  level:
+    org.springframework.cloud.loadbalancer: DEBUG
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics,gateway,routes,mappings,loggers
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    gateway:
+      enabled: true  # Gateway Actuator ONLY
+    shutdown:
+      enabled: false
+  info:
+    git:
+      mode: simple
+    env:
+      enabled: true
+

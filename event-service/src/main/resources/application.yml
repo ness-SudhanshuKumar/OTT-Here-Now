@@ -19,6 +19,8 @@ server:
 
 eureka:
   client:
+    healthcheck:
+      enabled: true
     ServiceUrl:
       defaultZone: http://localhost:8761/eureka
   instance:
@@ -28,3 +30,19 @@ eureka:
     non-secure-port: ${server.port}
     metadata-map:
       instanceId: ${spring.application.name}:${random.value}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway,routes  # Essential endpoints
+      base-path: /actuator  # Default
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: false  # Production: secure this
+  info:
+    env:
+      enabled: true
+    git:
+      mode: simple
