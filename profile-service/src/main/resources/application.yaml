@@ -18,7 +18,7 @@ spring:
       database-platform: org.hibernate.dialect.MySQL8Dialect
 
 server:
-  port: 8084
+  port: ${PORT:0}
 
 eureka:
   client:
@@ -27,3 +27,7 @@ eureka:
   instance:
     appName: profile-service
     preferIpAddress: true
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    non-secure-port: ${server.port}
+    metadata-map:
+      instanceId: ${spring.application.name}:${random.value}
