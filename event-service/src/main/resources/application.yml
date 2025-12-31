@@ -13,7 +13,7 @@ spring:
     properties:
       hibernate.format_sql: true
       database-platform: org.hibernate.dialect.MySQL8Dialect
-
+        
 server:
   port: ${PORT:0}
 
@@ -46,3 +46,9 @@ management:
       enabled: true
     git:
       mode: simple
+logging:
+  level:
+    org.springframework.jdbc.SQL: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.jdbc: DEBUG

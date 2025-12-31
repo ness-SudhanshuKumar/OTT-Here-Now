@@ -56,12 +56,12 @@ public class EventServiceImpl implements EventService{
 		// TODO Auto-generated method stub
 		Page<Event> page;
 		if(userId != null && type != null)
-			page = eventRepository.findByUserIdAndType(userId, type, pageable);
+			page = eventRepository.searchByUserIdAndType(userId, type, pageable);
 		else if (userId != null)
 			page = eventRepository.findByUserId(userId, pageable);
 		else
 			page = eventRepository.findAll(pageable);
-		
+		System.out.println("ResultSet:  \t"+page);
 		return page.map(this::toResponse);
 	}
 

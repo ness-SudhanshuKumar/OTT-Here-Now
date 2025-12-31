@@ -86,7 +86,7 @@ public class EventServiceImplTest {
         e1.setType(EventType.VIEW_START);
         Pageable pageable = PageRequest.of(0, 10, Sort.by("timestamp").descending());
 
-        when(eventRepository.findByUserIdAndType("user-101", EventType.VIEW_START, pageable))
+        when(eventRepository.searchByUserIdAndType("user-101", EventType.VIEW_START, pageable))
                 .thenReturn(new PageImpl<>(List.of(e1)));
 
         Page<EventResponse> events = eventService
