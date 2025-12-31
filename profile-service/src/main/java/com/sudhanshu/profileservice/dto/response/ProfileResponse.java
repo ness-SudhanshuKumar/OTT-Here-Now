@@ -12,11 +12,9 @@ import com.sudhanshu.profileservice.dto.metrics.TopContent;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 public class ProfileResponse {
 
 	 private String userId;
