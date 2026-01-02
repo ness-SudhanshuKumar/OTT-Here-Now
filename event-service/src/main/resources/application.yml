@@ -1,54 +1,6 @@
-spring:
-  application:
-    name: event-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/events_db?useSSl=false&allowPublicKeyRetrieval=true&serverTimeZone=IST
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: event_user
-    password: events_pass
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate.format_sql: true
-      database-platform: org.hibernate.dialect.MySQL8Dialect
-        
-server:
-  port: ${PORT:0}
-
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    ServiceUrl:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    appName: event-service
-    preferIpAddress: true
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    non-secure-port: ${server.port}
-    metadata-map:
-      instanceId: ${spring.application.name}:${random.value}
+# Minimal application.yml - most configs are in config server
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,gateway,routes  # Essential endpoints
-      base-path: /actuator  # Default
-  endpoint:
-    health:
-      show-details: always
-    shutdown:
-      enabled: false  # Production: secure this
-  info:
-    env:
-      enabled: true
-    git:
-      mode: simple
-logging:
-  level:
-    org.springframework.jdbc.SQL: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.springframework.jdbc: DEBUG
+        include: health,info,refresh

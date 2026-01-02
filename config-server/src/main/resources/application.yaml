@@ -1,0 +1,21 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:../La-casa-de-Papel
+          search-paths: config/{application} 
+          # For local testing, use:
+          search-locations: file:./config
+          default-label: main
+          clone-on-start: true
+          timeout: 5
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh
