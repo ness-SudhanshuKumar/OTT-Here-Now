@@ -1,5 +1,6 @@
 package com.sudhanshu.eventservice.service.impl;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -17,6 +18,10 @@ import com.sudhanshu.eventservice.entity.EventType;
 import com.sudhanshu.eventservice.exception.NotFoundException;
 import com.sudhanshu.eventservice.repository.EventRepository;
 import com.sudhanshu.eventservice.service.EventService;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 
 
 @Service
@@ -43,6 +48,9 @@ public class EventServiceImpl implements EventService{
 
 	@Override
 	@Transactional(readOnly = true)
+    @CircuitBreaker(name = "dbService", fallbackMethod = "getEventFallBack")
+    @TimeLimiter(name = "dbService")
+    @Retry(name = "dbService")
 	public EventResponse getEvent(UUID id) {
 		// TODO Auto-generated method stub
 		Event event = eventRepository.findById(id)
@@ -106,6 +114,14 @@ public class EventServiceImpl implements EventService{
 		
 	}
 
+	public EventResponse getEventFallBack(UUID id, Throwable ex) {
+		System.out.println("USERID "+ id + " failing with exception "+ ex.getMessage());
+		EventResponse response = new EventResponse();
+		response.setId(id);
+		response.setUserId("Dummy UserId");
+		response.setType(EventType.VIEW_START);
+		response.setTimestamp(Instant.now());
 
-
+		return response;
+	}
 }

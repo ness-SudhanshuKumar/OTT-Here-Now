@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,6 +33,7 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
@@ -39,25 +41,30 @@ import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 
 @Configuration
-public class SecurityConfig {
+@EnableWebSecurity
+public class AuthServerConfig {
 
 	@Bean
 	@Order(1)
 	public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-		  OAuth2AuthorizationServerConfigurer authorizationServerConfigurer = 
-				    OAuth2AuthorizationServerConfigurer.authorizationServer();
-		  http
-		  	 .securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
-		  	 .with(authorizationServerConfigurer, Customizer.withDefaults())
-		  	 .authorizeHttpRequests(authz -> authz.anyRequest().authenticated());
-		return http.build();
+        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        
+        http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
+            .oidc(Customizer.withDefaults());
+        
+        return http.build();
 	}
 	
 	@Bean
+	@Order(2)
 	public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(authorize -> authorize 
+				.requestMatchers("/actuator/**").permitAll()
 				.anyRequest().authenticated()
-				).formLogin(Customizer.withDefaults());
+				)
+		.httpBasic(Customizer.withDefaults())
+		.csrf(csrf -> csrf.disable());
+		
 				
 		return http.build();
 	}
@@ -70,8 +77,10 @@ public class SecurityConfig {
 				.clientSecret(passwordEncoder().encode("secure-gateway-secret-2026"))
 				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
 				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST)
-				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+				/*
+				 * .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+				 * .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+				 */
 				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
 				.redirectUri("http://localhost:8065/login/oauth2/code/auth-server")
 				.redirectUri("http://localhost:8080/authorized")
@@ -80,9 +89,9 @@ public class SecurityConfig {
 				.scope(OidcScopes.EMAIL)
 				.scope("reports:read")
 				.scope("reports:write")
+				.scope("reports:admin")
 				.tokenSettings(TokenSettings.builder()
 						.accessTokenTimeToLive(Duration.ofMinutes(15))
-						.refreshTokenTimeToLive(Duration.ofDays(1))
 						.build())
 				.clientSettings(ClientSettings.builder()
 						.requireAuthorizationConsent(false)

@@ -1,6 +1,14 @@
-# Minimal application.yml - most configs are in config server
 management:
+  health:
+    circuitbreakers:
+      enabled: true
   endpoints:
     web:
       exposure:
-        include: health,info,refresh
+        include: health,info,metrics,gateway,routes
+      base-path: /actuator  # Default
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: falsehealth,info,refresh

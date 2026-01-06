@@ -34,19 +34,20 @@ spring:
             - AddResponseHeader=X-Message, On Maintenance
   security:
     oauth2:
-      client:
-        registration:
-          gateway:
-            provider: auth-server
-            client-id: gateway-client
-            client-secret: gateway-secret
-            authorization-grant-type: client_credentials
-        resourceserver:
+#      client:
+#        registration:
+#          gateway:
+#            provider: auth-server
+#            client-id: gateway-client
+#            client-secret: gateway-secret
+#            authorization-grant-type: client_credentials
+       resourceserver:
           jwt:
             jwk-set-uri: http://localhost:9000/oauth2/jwks
-        provider:
-          auth-server:
-            token-uri: http://localhost:9000/oauth2/token
+            issuer-uri: http://localhost:9000
+#        provider:
+#          auth-server:
+#            token-uri: http://localhost:9000/oauth2/token
 eureka:
   client:
     service-url:
