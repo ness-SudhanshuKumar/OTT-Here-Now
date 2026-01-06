@@ -8,7 +8,7 @@ spring:
       server:
         git:
           uri: file:../La-casa-de-Papel
-          search-paths: config/{application} 
+          search-paths: 'config,config/{application}'
           # For local testing, use:
           search-locations: file:./config
           default-label: main

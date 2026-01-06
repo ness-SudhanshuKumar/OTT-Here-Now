@@ -32,6 +32,9 @@ eureka:
     metadata-map:
       instanceId: ${spring.application.name}:${random.value}
 management:
+  health:
+    circuitbreakers:
+      enabled: true
   endpoints:
     web:
       exposure:
@@ -47,3 +50,17 @@ info:
     enabled: true
   git:
     mode: simple
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      event-stats-cb:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED

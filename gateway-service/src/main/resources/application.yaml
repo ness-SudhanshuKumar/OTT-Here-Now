@@ -23,6 +23,30 @@ spring:
           uri: lb://REPORT-SERVICE
           predicates:
             - Path=/reports/**
+        - id: maintenance-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/**
+            - After=2026-01-01T20:30:00+05:30[Asia/Kolkata]
+            - Before=2026-01-01T21:00:00+05:30[Asia/Kolkata]
+          filters:
+            - SetStatus=503
+            - AddResponseHeader=X-Message, On Maintenance
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: auth-server
+            client-id: gateway-client
+            client-secret: gateway-secret
+            authorization-grant-type: client_credentials
+        resourceserver:
+          jwt:
+            jwk-set-uri: http://localhost:9000/oauth2/jwks
+        provider:
+          auth-server:
+            token-uri: http://localhost:9000/oauth2/token
 eureka:
   client:
     service-url:
