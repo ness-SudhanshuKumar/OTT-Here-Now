@@ -40,7 +40,7 @@ public class GatewaySecurityConfig {
                 .jwt(jwt -> {})  // Enable JWT for internal services
             )
             .csrf(csrf -> csrf.disable());
-        
+        System.out.println("\n"+ "\n" +"\n" + http.toString() + "\n");
         return http.build();
     }
 

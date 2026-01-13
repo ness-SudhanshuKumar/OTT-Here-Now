@@ -1,0 +1,241 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< com.sudhanshu.authorization:authorization-server >----------
+[INFO] Building authorization-server 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ authorization-server ---
+[INFO] Deleting C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ authorization-server ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ authorization-server ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target\classes
+[WARNING] /C:/Users/P7114330/Sudhanshu/OTT-Here&Now/authorization-server/src/main/java/com/sudhanshu/authorization/config/AuthServerConfig.java:[50,47] applyDefaultSecurity(org.springframework.security.config.annotation.web.builders.HttpSecurity) in org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration has been deprecated and marked for removal
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ authorization-server ---
+[INFO] skip non existing resourceDirectory C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ authorization-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ authorization-server ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ authorization-server ---
+[INFO] Building jar: C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\target\authorization-server-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.9:repackage (repackage) @ authorization-server ---
+[INFO] Replacing main artifact C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\target\authorization-server-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\target\authorization-server-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- install:3.1.4:install (default-install) @ authorization-server ---
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\pom.xml to C:\Users\P7114330\.m2\repository\com\sudhanshu\authorization\authorization-server\0.0.1-SNAPSHOT\authorization-server-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\authorization-server\target\authorization-server-0.0.1-SNAPSHOT.jar to C:\Users\P7114330\.m2\repository\com\sudhanshu\authorization\authorization-server\0.0.1-SNAPSHOT\authorization-server-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.799 s
+[INFO] Finished at: 2026-01-13T15:55:42+05:30
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.sudhanshu.config:config-server >-----------------
+[INFO] Building config-server 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ config-server ---
+[INFO] Deleting C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ config-server ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ config-server ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ config-server ---
+[INFO] skip non existing resourceDirectory C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ config-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ config-server ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ config-server ---
+[INFO] Building jar: C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\target\config-server-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.9:repackage (repackage) @ config-server ---
+[INFO] Replacing main artifact C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\target\config-server-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\target\config-server-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- install:3.1.4:install (default-install) @ config-server ---
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\pom.xml to C:\Users\P7114330\.m2\repository\com\sudhanshu\config\config-server\0.0.1-SNAPSHOT\config-server-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\config-server\target\config-server-0.0.1-SNAPSHOT.jar to C:\Users\P7114330\.m2\repository\com\sudhanshu\config\config-server\0.0.1-SNAPSHOT\config-server-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.953 s
+[INFO] Finished at: 2026-01-13T15:55:50+05:30
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.sudhanshu:discovery-service >-------------------
+[INFO] Building discovery-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ discovery-service ---
+[INFO] Deleting C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ discovery-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ discovery-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ discovery-service ---
+[INFO] skip non existing resourceDirectory C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ discovery-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ discovery-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ discovery-service ---
+[INFO] Building jar: C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\target\discovery-service-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.9:repackage (repackage) @ discovery-service ---
+[INFO] Replacing main artifact C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\target\discovery-service-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\target\discovery-service-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- install:3.1.4:install (default-install) @ discovery-service ---
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\pom.xml to C:\Users\P7114330\.m2\repository\com\sudhanshu\discovery-service\0.0.1-SNAPSHOT\discovery-service-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\discovery-service\target\discovery-service-0.0.1-SNAPSHOT.jar to C:\Users\P7114330\.m2\repository\com\sudhanshu\discovery-service\0.0.1-SNAPSHOT\discovery-service-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.753 s
+[INFO] Finished at: 2026-01-13T15:56:10+05:30
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.sudhanshu.eventservice:eventservice:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-starter-actuator:jar -> duplicate declaration of version (?) @ line 78, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] --------------< com.sudhanshu.eventservice:eventservice >---------------
+[INFO] Building eventservice 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ eventservice ---
+[INFO] Deleting C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ eventservice ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ eventservice ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 17 source files with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ eventservice ---
+[INFO] skip non existing resourceDirectory C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ eventservice ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ eventservice ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ eventservice ---
+[INFO] Building jar: C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\target\eventservice-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.9:repackage (repackage) @ eventservice ---
+[INFO] Replacing main artifact C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\target\eventservice-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\target\eventservice-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- install:3.1.4:install (default-install) @ eventservice ---
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\pom.xml to C:\Users\P7114330\.m2\repository\com\sudhanshu\eventservice\eventservice\0.0.1-SNAPSHOT\eventservice-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\event-service\target\eventservice-0.0.1-SNAPSHOT.jar to C:\Users\P7114330\.m2\repository\com\sudhanshu\eventservice\eventservice\0.0.1-SNAPSHOT\eventservice-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.882 s
+[INFO] Finished at: 2026-01-13T15:56:39+05:30
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.sudhanshu:gateway-service >--------------------
+[INFO] Building gateway-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ gateway-service ---
+[INFO] Deleting C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ gateway-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ gateway-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ gateway-service ---
+[INFO] skip non existing resourceDirectory C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ gateway-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ gateway-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ gateway-service ---
+[INFO] Building jar: C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\target\gateway-service-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.9:repackage (repackage) @ gateway-service ---
+[INFO] Replacing main artifact C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\target\gateway-service-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\target\gateway-service-0.0.1-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- install:3.1.4:install (default-install) @ gateway-service ---
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\pom.xml to C:\Users\P7114330\.m2\repository\com\sudhanshu\gateway-service\0.0.1-SNAPSHOT\gateway-service-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\P7114330\Sudhanshu\OTT-Here&Now\gateway-service\target\gateway-service-0.0.1-SNAPSHOT.jar to C:\Users\P7114330\.m2\repository\com\sudhanshu\gateway-service\0.0.1-SNAPSHOT\gateway-service-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.472 s
+[INFO] Finished at: 2026-01-13T15:56:48+05:30
+[INFO] ------------------------------------------------------------------------
+The system cannot find the path specified.
+'Now' is not recognized as an internal or external command,
+operable program or batch file.
+Exception calling "DownloadFile" with "2" argument(s): "An exception occurred during a WebClient request."
+At line:1 char:282
++ ... pe]::Tls12; $webclient.DownloadFile('https://repo.maven.apache.org/ma ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : WebException
+ 
+Error: Could not find or load main class org.apache.maven.wrapper.MavenWrapperMain
+Caused by: java.lang.ClassNotFoundException: org.apache.maven.wrapper.MavenWrapperMain

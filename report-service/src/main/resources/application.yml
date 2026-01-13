@@ -1,6 +1,8 @@
 spring:
   application:
     name: report-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   cloud:
     config:
       enabled: false
@@ -64,3 +66,23 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
         slidingWindowSize: 10
         slidingWindowType: COUNT_BASED
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+  path: C:\Users\P7114330\Sudhanshu\myapp # Optional: custom log directory
+
+# External Service Configuration
+external:
+  service:
+    auth:
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.your.token
+    api:
+      key: dkxqwduoHOWHq
+
+  # RestTemplate Timeouts
+resttemplate:
+  connection:
+    timeout: 5000
+  read:
+    timeout: 10000

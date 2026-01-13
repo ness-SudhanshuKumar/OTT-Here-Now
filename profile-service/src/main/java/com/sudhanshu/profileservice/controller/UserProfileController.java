@@ -38,6 +38,7 @@ public class UserProfileController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size) {
         Pageable pageable = PageRequest.of(page, size);
+        System.out.println(page+"  "+ size);
         return ResponseEntity.ok(ProfilePageResponse.from(userProfileService.getHighEngagementProfiles(minScore,pageable)));
     }
 

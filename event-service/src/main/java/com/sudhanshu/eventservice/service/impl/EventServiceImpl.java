@@ -48,9 +48,8 @@ public class EventServiceImpl implements EventService{
 
 	@Override
 	@Transactional(readOnly = true)
-    @CircuitBreaker(name = "dbService", fallbackMethod = "getEventFallBack")
-    @TimeLimiter(name = "dbService")
-    @Retry(name = "dbService")
+	@CircuitBreaker(name = "dbService", fallbackMethod = "getEventFallBack")
+	@Retry(name = "dbService")
 	public EventResponse getEvent(UUID id) {
 		// TODO Auto-generated method stub
 		Event event = eventRepository.findById(id)
