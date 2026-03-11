@@ -3,6 +3,7 @@ package com.sudhanshu.reportservice.controller;
 import java.math.BigDecimal;
 import java.util.List;
 
+import jakarta.inject.Qualifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.ServiceInstance;
@@ -33,7 +34,6 @@ public class ReportController {
 		this.discoveryClient = discoveryClient;
 		this.restTemplate = restTemplate;
 	}
-	
 	@GetMapping("/event/stats")
 	@CircuitBreaker(name = "event-stats-cb", fallbackMethod = "eventStatsFallback")
 	public ResponseEntity<?> getEventStatus(){
@@ -76,7 +76,15 @@ public class ReportController {
 		return profiles;
 
 	}
-	
+
+	@GetMapping("/getJsonLocalisedText")
+	public ResponseEntity<?> getJsonLocalisedText() {
+		String profileUrl = "https://www-dev.ctal.ctc/libs/cq/i18n/dict.en.json";
+		log.info(profileUrl);
+
+		ResponseEntity<?> stats = restTemplate.getForEntity(profileUrl, Object.class);
+		return stats;
+	}
 	public ResponseEntity<?> eventStatsFallback(Exception ex){
 		
 		log.debug("Event stats API is down: " ,ex.getMessage());
